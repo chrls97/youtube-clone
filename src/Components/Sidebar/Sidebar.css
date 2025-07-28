@@ -67,6 +67,17 @@
  background-color: #f1f1f1;
 }
 
+.sidelink, .active{
+  background-color: #e6e5e5;
+}
+
+.active p{
+  font-weight: bold;
+
+}
+
+
+
 .sidebar hr{
   border: 0;
   height: 1px;
