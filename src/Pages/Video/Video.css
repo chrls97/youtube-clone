@@ -1,0 +1,10 @@
+.play-container{
+  background-color: #f9f9f9;
+  padding-left: 6%;
+  padding-right: 6%;
+  padding-top: 27px;
+  border-bottom: 20px;
+  display: flex;
+  flex-direction: space-between;
+  flex: wrap;
+}
