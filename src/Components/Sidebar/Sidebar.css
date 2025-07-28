@@ -1,0 +1,90 @@
+.sidebar{
+  background-color: #ffff;
+  height: 100vh;
+  width: 230px;
+  position: fixed;
+  top: 1;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+  padding-top: 15px;
+}
+
+/* // if sidebarOpen is false, show a smaller version of the sidebar */
+.small-sidebar{
+  width: 80px;
+  padding-top: 15px;
+}
+
+.small-sidebar p{
+  display: none;
+}
+
+.small-sidebar h3{
+  display: none;
+}
+
+.small-sidebar hr{
+  width: 40px!important;
+}
+
+.small-sidebar .subsribed-list{
+  margin-top: 10px;
+}
+
+
+.sidebar:hover{
+  overflow-y: scroll;
+}
+
+.shortcut-links img{
+  width: 23px;
+  margin-right: 15px;
+  
+}
+
+
+
+.side-link{
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  width: fit-content;
+  flex-wrap: wrap;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.side-link p{
+  font-size: 15px;
+  font-weight: 500;
+  
+}
+
+.side-link:hover{
+ background-color: #f1f1f1;
+}
+
+.sidebar hr{
+  border: 0;
+  height: 1px;
+  background: #ccc;
+  width: 100%;
+}
+
+
+.subsribed-list h3{
+  font-size: 16px;
+  padding: 0px 10px;
+  margin:10px 0;
+  color: #5a5a5a;
+}
+
+.subsribed-list img{
+  width: 23px;
+  margin-right: 15px;
+  border-radius: 50%;
+  
+}
