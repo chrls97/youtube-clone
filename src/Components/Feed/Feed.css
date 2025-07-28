@@ -1,0 +1,20 @@
+.feed{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  gap: 20px;
+}
+
+.card img{
+  width: 100%;
+  height: auto;
+}
+
+.card h2{
+  font-size: 18px;
+}
+
+.card h3, .card p{
+  font-weight: 500;
+  margin-top: 3px;
+  font-size: 15px;
+}
