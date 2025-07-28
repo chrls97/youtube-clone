@@ -7,15 +7,21 @@ import upload_icon from '../../assets/upload.png'
 import more_icon from '../../assets/more.png'
 import notification_icon from '../../assets/notification.png'
 import profile_icon from '../../assets/jack.png'
+import { useNavigate } from 'react-router-dom'
+
 
 
 const Navbar = ({setSidebarOpen}) => {
+
+  const navigate = useNavigate();
+
   return (
     <nav className='flex-div'>
       <div className='nav-left flex-div'>
                                         {/* //if sidebarOpen is true, show the full sidebar, otherwise show a smaller version*/}
-        <img src={menu_icon} alt='Menu' className='menu-icon' onClick={()=>setSidebarOpen(setSidebarOpen=>setSidebarOpen === false? true: false)} />
-        <img src={logo} alt='YouTube Logo' className='logo' />
+        <img src={menu_icon}  alt='Menu' className='menu-icon' onClick={()=>setSidebarOpen(setSidebarOpen=>setSidebarOpen === false? true: false)} />
+                                        {/* // Logo that redirects to home page when clicked */}
+        <img src={logo} alt='YouTube Logo' className='logo' onClick={()=>navigate('/')} />
       </div>
 
       <div className='nav-middle flex-div'>
