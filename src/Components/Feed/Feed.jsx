@@ -1,18 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import './Feed.css'
-import thumbnail1 from '../../Assets/thumbnail1.png'
-import thumbnail2 from '../../Assets/thumbnail2.png'
-import thumbnail3 from '../../Assets/thumbnail3.png'
-import thumbnail4 from '../../Assets/thumbnail4.png'
-import thumbnail5 from '../../Assets/thumbnail5.png'
-import thumbnail6 from '../../Assets/thumbnail6.png'
-import thumbnail7 from '../../Assets/thumbnail7.png'
-import thumbnail8 from '../../Assets/thumbnail8.png'
-import { Link } from 'react-router'
-import {API_KEY, value_converter} from '../../data'
+import { Link } from 'react-router-dom'  // Fixed import
+import { API_KEY, value_converter } from '../../data'
 import moment from 'moment'
 
-const Feed = ({category}) => {
+const Feed = ({ category }) => {
   const [data, setData] = useState([]);
 
   const fetchData = async (category, API_KEY) => {
@@ -22,7 +14,7 @@ const Feed = ({category}) => {
         part: 'snippet,contentDetails,statistics',
         chart: 'mostPopular',
         maxResults: 15,
-        regionCode: 'US',
+        regionCode: 'PH',
         videoCategoryId: category,
         key: API_KEY
       });
@@ -32,37 +24,43 @@ const Feed = ({category}) => {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-      
+
       const data = await response.json();
       setData(data.items)
+      
     }catch(err) {
       console.error("Error fetching data:", err);
     }
-    
-
-   
   }
+
 
   useEffect(() => {
     fetchData(category, API_KEY);
-  },[category])
+  }, [category])
 
 
   return (
     <div className="feed">
       {data.map((item, index) => {
-        return(
-          <Link to={`video/${item.snippet.categoryId}/${item.id}`} className='card'>
-            <img src={item.snippet.thumbnails.maxres.url} alt="" />
+        // Conditional rendering to check thumbnail available resolutions
+        const thumbnail = item.snippet.thumbnails?.maxres?.url 
+                        || item.snippet.thumbnails?.high?.url 
+                        || item.snippet.thumbnails?.medium?.url;
+
+        return (
+          <Link to={`video/${item.snippet.categoryId}/${item.id}`}  className='card' key={index} >
+            <img src={thumbnail} alt="" />
             <h2>{item.snippet.title}</h2>
-            <h3>GreatStack</h3>
-            <p>{value_converter(item.statistics.viewCount)} views &bull; {moment(item.snippet.publishedAt).fromNow()}</p>
+            <h3>{item.snippet.channelTitle || 'Unknown channel'}</h3>
+            <p>
+              {item.statistics?.viewCount ? `${value_converter(item.statistics.viewCount)} views ` : ' '} 
+              &bull;&nbsp;  
+              {moment(item.snippet.publishedAt).fromNow()}
+            </p>
           </Link>
         )
       })}
-      
     </div>    
-    
   )
 }
 
