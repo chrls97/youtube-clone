@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import './Feed.css'
 import { Link } from 'react-router-dom'  // Fixed import
-import { API_KEY, value_converter } from '../../data'
+import { value_converter } from '../../data'
 import moment from 'moment'
 
 const Feed = ({ category }) => {
   const [data, setData] = useState([]);
+  const API_KEY = import.meta.env.VITE_API_KEY;
 
   const fetchData = async (category, API_KEY) => {
     try{

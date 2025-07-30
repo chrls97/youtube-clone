@@ -4,7 +4,7 @@ import like from '../../assets/like.png'
 import dislike from '../../assets/dislike.png'
 import share from '../../assets/share.png'
 import save from '../../assets/save.png'
-import { API_KEY, value_converter } from '../../data'
+import { value_converter } from '../../data'
 import moment from 'moment'
 
 const PlayVideo = ({videoId}) => {
@@ -13,6 +13,7 @@ const PlayVideo = ({videoId}) => {
   const [channelData, setChannelData] = useState(null);
   const [commentThread, setCommentThread] = useState([]);
 
+  const API_KEY = import.meta.env.VITE_API_KEY; // Use the API key from environment variables
 
   // Fetch video details using the videoId
   const fetchApiData = async (videoId, API_KEY) => {
@@ -48,7 +49,7 @@ const PlayVideo = ({videoId}) => {
       fetchApiData(videoId, API_KEY);
     }
    
-  }, [videoId, API_KEY]);
+  }, [videoId]);
 
   // GET/FETCH the Channel Data
   const fetchChannelApiData = async (channelId, API_KEY) => {
@@ -78,7 +79,7 @@ const PlayVideo = ({videoId}) => {
     if (videoData) {
       fetchChannelApiData(videoData.snippet.channelId, API_KEY);
     }
-  }, [videoData, API_KEY]);
+  }, [videoData]);
 
 
   // Fetch / Get Comment Thread
@@ -108,7 +109,7 @@ const PlayVideo = ({videoId}) => {
     if(videoId){
       fetchCommentThreadData(videoId, API_KEY);
     }
-  },[videoId, API_KEY])
+  },[videoId])
 
   
 

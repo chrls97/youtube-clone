@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import './Recommended.css'
 import thumbnail1 from '../../Assets/thumbnail1.png'
-import { API_KEY, value_converter } from '../../data';
+import { value_converter } from '../../data';
 import { Link } from 'react-router';
 
 
 const Recommended = ({categoryId}) => {
 
   const [videoData, setVideoData] = useState([]);
-
+  const API_KEY = import.meta.env.VITE_API_KEY;
+  
   const fetchVideoData = async ( categoryId, API_KEY) =>{
     try{
       const API_URL = 'https://youtube.googleapis.com/youtube/v3/videos';
