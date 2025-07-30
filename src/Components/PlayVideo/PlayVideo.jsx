@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import './PlayVideo.css'
-import video from '../../assets/video.mp4'
 import like from '../../assets/like.png'
 import dislike from '../../assets/dislike.png'
 import share from '../../assets/share.png'
 import save from '../../assets/save.png'
-import jack from '../../assets/jack.png'
-import user_profile from '../../assets/user_profile.jpg'
 import { API_KEY, value_converter } from '../../data'
 import moment from 'moment'
 
@@ -90,7 +87,7 @@ const PlayVideo = ({videoId}) => {
       const API_URL = `https://youtube.googleapis.com/youtube/v3/commentThreads`;
       const params = new URLSearchParams({
         part:'snippet,replies',
-        maxResults: 100,
+        maxResults: 30,
         videoId:videoId,
         key:API_KEY
       });
@@ -145,8 +142,6 @@ const PlayVideo = ({videoId}) => {
       <div className='vid-description'>
         <p className='views'>{videoData ? value_converter(videoData.statistics.viewCount) : "0"} views  {videoData ? moment(videoData.snippet.publishedAt).fromNow() : ""} </p>
         <p>{videoData ? videoData.snippet.description : "Description"}</p>
-
-
       </div>
 
       <div className='comments-count'>
@@ -172,7 +167,7 @@ const PlayVideo = ({videoId}) => {
         )
       })}
       
-
+       
      
     </div>
     

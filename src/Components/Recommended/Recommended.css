@@ -1,5 +1,6 @@
 .recommended{
-  flex-basis: 25%;
+  flex-basis: 23%;
+  width: 100%;
 }
 
 .side-video-list{
@@ -28,4 +29,10 @@
 .vid-info p{
   font-size: 14px;
   color: #606060;
+}
+
+@media screen and (max-width:800px) {
+  .recommended{
+    flex-basis: 100%;
+  }
 }

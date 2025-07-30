@@ -6,6 +6,16 @@
   border-bottom: 20px;
   display: flex;
   flex-direction: space-between;
-  flex: wrap;
+  flex-wrap: wrap;
   gap: 20px;
+}
+
+
+@media screen and (max-width: 798px){ 
+  .play-container{
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+
+
 }

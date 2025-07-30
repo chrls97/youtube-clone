@@ -33,7 +33,6 @@ const Feed = ({ category }) => {
     }
   }
 
-
   useEffect(() => {
     fetchData(category, API_KEY);
   }, [category])
@@ -48,7 +47,7 @@ const Feed = ({ category }) => {
                         || item.snippet.thumbnails?.medium?.url;
 
         return (
-          <Link to={`video/${item.snippet.categoryId}/${item.id}`}  className='card' key={index} >
+          <Link to={`/video/${item.snippet.categoryId}/${item.id}`}  className='card' key={index} >
             <img src={thumbnail} alt="" />
             <h2>{item.snippet.title}</h2>
             <h3>{item.snippet.channelTitle || 'Unknown channel'}</h3>
