@@ -44,3 +44,26 @@ nav{
   width: 35px;
   border-radius: 50%;
 } 
+
+@media screen and (max-width: 900px){ 
+  .nav-middle .search-box input{
+    width: 200px;
+  }
+  
+  .nav-left .menu-icon{
+    width: 15px;
+    margin-right: 10px;
+  }
+
+  nav{
+    padding: 8px 3%;
+  }
+}
+
+
+@media screen and (max-width: 798px){ 
+  .nav-middle .search-box input{
+    width: 100px;
+  }
+  
+}

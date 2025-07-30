@@ -32,8 +32,6 @@ const Navbar = ({setSidebarOpen}) => {
       </div>
 
       <div className='nav-right flex-div'>
-        <img src={upload_icon} alt="Upload" />
-        <img src={more_icon} alt="More" />
         <img src={notification_icon} alt="Notification" />
         <img src={profile_icon} alt="Profile" className='user-icon'/>
       </div>

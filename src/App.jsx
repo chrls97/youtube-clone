@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import Navbar from './Components/Navbar/Navbar'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, Navigate  } from 'react-router-dom'
 import Home from './Pages/Home/Home'
 import Video from './Pages/Video/Video'  
+
 
 const App = () => {
   
@@ -15,6 +16,8 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home sidebarOpen={sidebarOpen}/>}/>
         <Route path='/video/:categoryId/:videoId' element={<Video/>}/>
+        <Route path='/video/:categoryId/:videoId' element={<Video/>}/>
+       <Route path='*' element={<Navigate to='/'  />} />
       </Routes>
     </div>
   )
