@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './Recommended.css'
-import thumbnail1 from '../../Assets/thumbnail1.png'
+import thumbnail1 from '../../assets/thumbnail1.png'
 import { value_converter } from '../../data';
 import { Link } from 'react-router';
 
